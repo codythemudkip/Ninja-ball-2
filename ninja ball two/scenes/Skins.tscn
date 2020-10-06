@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://player/player.png" type="Texture" id=1]
+[ext_resource path="res://UI/arrow.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Skins.gd" type="Script" id=3]
+[ext_resource path="res://UI/arrowR.png" type="Texture" id=4]
+[ext_resource path="res://851H-kktt.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 5 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="PaddleSkin" type="Sprite" parent="."]
+position = Vector2( 80, 80 )
+texture = ExtResource( 1 )
+hframes = 8
+
+[node name="pSkin" type="Label" parent="PaddleSkin"]
+margin_left = -9.0
+margin_top = 33.0
+margin_right = 71.0
+margin_bottom = 47.0
+text = "skin"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PaddleRight" type="TextureButton" parent="."]
+margin_left = 96.0
+margin_top = 128.0
+margin_right = 128.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PaddleLeft" type="TextureButton" parent="."]
+margin_left = 32.0
+margin_top = 128.0
+margin_right = 64.0
+margin_bottom = 160.0
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="apply" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 320.0
+margin_right = 112.0
+margin_bottom = 340.0
+text = "$$Apply"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="."]
+margin_left = 256.0
+margin_top = 320.0
+margin_right = 356.0
+margin_bottom = 340.0
+text = "$$Back to menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="skinName" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 224.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 1 )
+text = "$$Skinname"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="PaddleRight" to="." method="_on_PaddleRight_pressed"]
+[connection signal="pressed" from="PaddleLeft" to="." method="_on_PaddleLeft_pressed"]
+[connection signal="pressed" from="apply" to="." method="_on_apply_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
